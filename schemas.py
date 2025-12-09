@@ -50,19 +50,16 @@ class CheckoutBase(BaseModel):
     user_id: int
     book_id: int
     checkout_date: str
-    return_date: str
 
-class ChecoutCreate(CheckoutBase):
+class CheckoutCreate(CheckoutBase):
     user_id: int
     book_id: int
     checkout_date: str
-    return_date: str # REEVALUATE THIS, MIGHT CHANGE TO OPTIONAL (ONLY INCLUDE DATE WHEN RETURNED? OR MAYBE ADD FIELD FOR EXPECTED VS ACTUAL RETURN DATE AND DO FINES)
 
 class CheckoutUpdate(CheckoutBase):
     user_id: Optional[int] = None
     book_id: Optional[int] = None
     checkout_date: Optional[str] = None
-    return_date: Optional[str] = None
 
 class Checkout(CheckoutBase):
     id: int
