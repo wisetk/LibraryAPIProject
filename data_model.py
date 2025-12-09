@@ -14,7 +14,7 @@ class Book(Base):
     available_copies = Column(Integer)
 
     def to_dict(self):
-        return {"id": self.id, "title": self.title, "author": self.author, "genre": self.genre, "total_copies": self.total_copies, "available copies": self.available_copies}
+        return {"id": self.id, "title": self.title, "author": self.author, "genre": self.genre, "total_copies": self.total_copies, "available_copies": self.available_copies}
 
 class User(Base):
     __tablename__ = "users"
@@ -31,10 +31,9 @@ class Checkout(Base):
     __tablename__ = "checkouts"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey(User.id)) # CONFIRM THESE WORK
+    user_id = Column(Integer, ForeignKey(User.id))
     book_id = Column(Integer, ForeignKey(Book.id))
     checkout_date = Column(String)
-    return_date = Column(String)
 
     def to_dict(self):
-        return {"id": self.id, "user_id": self.user_id, "book_id": self.book_id, "checkout_date": self.checkout_date, "return_date": self.return_date}
+        return {"id": self.id, "user_id": self.user_id, "book_id": self.book_id, "checkout_date": self.checkout_date}
